@@ -20,8 +20,8 @@ constructor(private apiService: ApiService, private authService: AuthService, pr
 
     this.apiService.post('auth/login', loginData).subscribe({
       next: (response) => {
-        this.authService.setToken(response.token);
-        this.router.navigate(['']);
+        this.authService.setToken(response.access_token);
+        this.router.navigate(['/library']);
       },
       error: (error) => {
         this.errorMessage = 'Invalid username or password. Please try again.';

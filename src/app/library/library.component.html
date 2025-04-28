@@ -1,0 +1,45 @@
+<div class="library-container">
+    <h2>Library Management</h2>
+  
+    <!-- Error message -->
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Add new library -->
+    <h3>Create New Library</h3>
+    <form (ngSubmit)="createLibrary()">
+      <label for="name">Library Name:</label>
+      <input type="text" id="name" [(ngModel)]="newLibrary.name" name="name" required />
+      
+      <label for="location">Location:</label>
+      <input type="text" id="location" [(ngModel)]="newLibrary.location" name="location" required />
+  
+      <button type="submit">Create</button>
+    </form>
+  
+    <!-- Library List -->
+    <h3>Library List</h3>
+    <ul>
+      <li *ngFor="let library of libraries">
+        <span>{{ library.name }} - {{ library.location }}</span>
+        <button (click)="selectLibrary(library)">Edit</button>
+        <button (click)="deleteLibrary(library.id)">Delete</button>
+      </li>
+    </ul>
+  
+    <!-- Edit Library Form -->
+    <div *ngIf="selectedLibrary">
+      <h3>Edit Library</h3>
+      <form (ngSubmit)="updateLibrary()">
+        <label for="name">Library Name:</label>
+        <input type="text" id="name" [(ngModel)]="selectedLibrary.name" name="name" required />
+        
+        <label for="location">Location:</label>
+        <input type="text" id="location" [(ngModel)]="selectedLibrary.location" name="location" required />
+  
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+  

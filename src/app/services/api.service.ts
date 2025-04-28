@@ -30,8 +30,8 @@ export class ApiService {
   }
 
   // DELETE request
-  delete(endpoint: string): Observable<any> {
+  delete(endpoint: string, body: any): Observable<any> {
     const url = `${this.apiUrl}/${endpoint}`;
-    return this.http.delete<any>(url);
+    return this.http.delete<any>(url, body);
   }
 }

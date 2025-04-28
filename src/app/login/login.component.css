@@ -1,41 +1,46 @@
 .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f1f1f1;
-    .form-group {
-      margin-bottom: 15px;
-      label {
-        font-size: 1.2em;
-        margin-bottom: 5px;
-        color: #333;
-      }
-      input {
-        width: 300px;
-        padding: 10px;
-        font-size: 1em;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-      }
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 1.2em;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    .error-message {
-      font-size: 0.9em;
-      color: red;
-    }
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 300px;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  font-size: 0.9em;
+  color: red;
+}
