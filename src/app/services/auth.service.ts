@@ -1,19 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'https://localhost:8000/api/login';  // Replace with your API URL
+  constructor() {}
 
-  constructor(private http: HttpClient) { }
+  // Save the JWT token to localStorage
+  setToken(token: string): void {
+    localStorage.setItem('authToken', token);
+  }
 
-  login(username: string, password: string): Observable<any> {
-    // You can modify the body and endpoint according to your API
-    const body = { username, password };
-    return this.http.post(this.apiUrl, body);
+  // Get the JWT token from localStorage
+  getToken(): string | null {
+    return localStorage.getItem('authToken');
+  }
+
+  // Remove the JWT token from localStorage
+  removeToken(): void {
+    localStorage.removeItem('authToken');
+  }
+
+  // Check if the token exists
+  isAuthenticated(): boolean {
+    return this.getToken() !== null;
   }
 }
