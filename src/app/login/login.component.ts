@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
-import { AuthService } from '../services/auth.service';
+import { ApiService } from '../core/services/api.service';
+import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ constructor(private apiService: ApiService, private authService: AuthService, pr
     this.apiService.post('auth/login', loginData).subscribe({
       next: (response) => {
         this.authService.setToken(response.access_token);
-        this.router.navigate(['/library']);
+        this.router.navigate(['/libraries']);
       },
       error: (error) => {
         this.errorMessage = 'Invalid username or password. Please try again.';

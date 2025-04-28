@@ -23,6 +23,7 @@
     <ul>
       <li *ngFor="let library of libraries">
         <span>{{ library.name }} - {{ library.location }}</span>
+        <button [routerLink]="['/library', library.id,'books']">View Books</button>
         <button (click)="selectLibrary(library)">Edit</button>
         <button (click)="deleteLibrary(library.id)">Delete</button>
       </li>

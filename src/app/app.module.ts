@@ -5,24 +5,29 @@ import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AuthInterceptorService } from './core/interceptors/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { LibraryComponent } from './library/library.component';
+import { LibraryModule } from './library/library.module';
+import { BookModule } from './book/book.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    LibraryComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LibraryModule,
+    BookModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

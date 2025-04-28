@@ -1,0 +1,63 @@
+
+
+<div class="book-container">
+    <h2>Books</h2>
+    <form class="book-form" (ngSubmit)="createBook()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Book Name</mat-label>
+          <input matInput placeholder="Book Name" [(ngModel)]="newBook.name" name="name">
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Category</mat-label>
+          <input matInput placeholder="Category" [(ngModel)]="newBook.category" name="category">
+        </mat-form-field>
+    
+        <button mat-flat-button color="primary" type="submit">Add Book</button>
+      </form>
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="successMessage" class="success">
+      {{ successMessage }}
+    </div>
+
+
+    <table mat-table [dataSource]="books" class="mat-elevation-z8">
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let book"> {{book.name}} </td>
+      </ng-container>
+  
+      <!-- Category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let book"> {{book.category}} </td>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let book">
+          <button mat-stroked-button color="accent" (click)="selectBook(book)">Edit</button>
+          <button mat-stroked-button color="warn" (click)="deleteBook(book.id)">Delete</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <div *ngIf="selectedBook">
+        <h3>Edit Book</h3>
+        <form (submit)="updateBook()">
+          <input [(ngModel)]="selectedBook.name" name="name" placeholder="Book Name" required>
+          <input [(ngModel)]="selectedBook.category" name="category" placeholder="Category" required>
+          <button type="submit">Update Book</button>
+        </form>
+      </div>
+   
+  </div>
+  

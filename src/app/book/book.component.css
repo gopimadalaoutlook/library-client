@@ -1,0 +1,17 @@
+.book-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .book-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
