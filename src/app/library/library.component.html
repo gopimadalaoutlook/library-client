@@ -1,46 +1,58 @@
 <div class="library-container">
-    <h2>Library Management</h2>
-  
-    <!-- Error message -->
-    <div *ngIf="errorMessage" class="error">
-      {{ errorMessage }}
-    </div>
-  
-    <!-- Add new library -->
+  <h2>Library Management</h2>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Add new library -->
+  <section class="form-section">
     <h3>Create New Library</h3>
-    <form (ngSubmit)="createLibrary()">
-      <label for="name">Library Name:</label>
-      <input type="text" id="name" [(ngModel)]="newLibrary.name" name="name" required />
-      
-      <label for="location">Location:</label>
-      <input type="text" id="location" [(ngModel)]="newLibrary.location" name="location" required />
-  
-      <button type="submit">Create</button>
+    <form (ngSubmit)="createLibrary()" class="form-grid">
+      <label>Library Name:
+        <input type="text" [(ngModel)]="newLibrary.name" name="name" required />
+      </label>
+
+      <label>Location:
+        <input type="text" [(ngModel)]="newLibrary.location" name="location" required />
+      </label>
+
+      <button type="submit" class="btn-green">Create</button>
     </form>
-  
-    <!-- Library List -->
+  </section>
+
+  <!-- Library List -->
+  <section class="list-section">
     <h3>Library List</h3>
     <ul>
       <li *ngFor="let library of libraries">
-        <span>{{ library.name }} - {{ library.location }}</span>
-        <button [routerLink]="['/library', library.id,'books']">View Books</button>
-        <button (click)="selectLibrary(library)">Edit</button>
-        <button (click)="deleteLibrary(library.id)">Delete</button>
+        <div class="library-info">
+          <span class="library-name">{{ library.name }}</span>
+          <span class="library-location">{{ library.location }}</span>
+        </div>
+        <div class="library-actions">
+          <button [routerLink]="['/library', library.id, 'books']" class="btn-blue">View Books</button>
+          <button (click)="selectLibrary(library)" class="btn-orange">Edit</button>
+          <button (click)="deleteLibrary(library.id)" class="btn-red">Delete</button>
+        </div>
       </li>
     </ul>
-  
-    <!-- Edit Library Form -->
-    <div *ngIf="selectedLibrary">
-      <h3>Edit Library</h3>
-      <form (ngSubmit)="updateLibrary()">
-        <label for="name">Library Name:</label>
-        <input type="text" id="name" [(ngModel)]="selectedLibrary.name" name="name" required />
-        
-        <label for="location">Location:</label>
-        <input type="text" id="location" [(ngModel)]="selectedLibrary.location" name="location" required />
-  
-        <button type="submit">Update</button>
-      </form>
-    </div>
-  </div>
-  
+  </section>
+
+  <!-- Edit Library Form -->
+  <section *ngIf="selectedLibrary" class="form-section">
+    <h3>Edit Library</h3>
+    <form (ngSubmit)="updateLibrary()" class="form-grid">
+      <label>Library Name:
+        <input type="text" [(ngModel)]="selectedLibrary.name" name="editName" required />
+      </label>
+
+      <label>Location:
+        <input type="text" [(ngModel)]="selectedLibrary.location" name="editLocation" required />
+      </label>
+
+      <button type="submit" class="btn-green">Update</button>
+    </form>
+  </section>
+</div>

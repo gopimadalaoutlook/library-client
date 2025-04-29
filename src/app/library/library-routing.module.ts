@@ -5,7 +5,7 @@ import { LibraryComponent } from './library.component';
 const routes: Routes = [
   {
     path: '', 
-    component: LibraryComponent
+    component: LibraryComponent,
   }
 ];
 

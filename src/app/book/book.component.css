@@ -9,9 +9,12 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 40px;
   }
   
   .full-width {
     width: 100%;
   }
+
+  
   

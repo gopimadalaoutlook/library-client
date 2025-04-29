@@ -1,3 +1,23 @@
+<header class="app-banner">
+    <div class="banner-content">
+      <div class="app-title">
+        📚 Library Management System
+      </div>
+  
+      <div class="auth-actions">
+        <ng-container *ngIf="!loggedInUser; else loggedInBlock">
+          <button (click)="navigateToLogin()" class="btn-login">Login</button>
+        </ng-container>
+  
+        <ng-template #loggedInBlock>
+          <span class="welcome-text">Welcome, {{ loggedInUser }}</span>
+          <button (click)="logout()" class="btn-logout">Logout</button>
+        </ng-template>
+      </div>
+    </div>
+  </header>
+  
 
+  
 
 <router-outlet></router-outlet>

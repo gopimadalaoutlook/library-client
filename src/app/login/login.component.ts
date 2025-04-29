@@ -20,7 +20,7 @@ constructor(private apiService: ApiService, private authService: AuthService, pr
 
     this.apiService.post('auth/login', loginData).subscribe({
       next: (response) => {
-        this.authService.setToken(response.access_token);
+        this.authService.setToken(response.access_token, this.username);
         this.router.navigate(['/libraries']);
       },
       error: (error) => {
